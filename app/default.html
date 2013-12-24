@@ -21,10 +21,9 @@
 
     <link rel="stylesheet" href="css/app.css"/>
 </head>
-<body ng-controller="indexController" style="background-color: pink;">
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header window-drag-on">
+<body ng-controller="indexController">
+<nav class="navbar navbar-inverse navbar-fixed-top window-drag-on">
+    <div class="navbar-header">
         <div class="navbar-brand">
             <span class="action" ng-click="gotoRoute('/welcome')">wikiNotebook</span>
         </div>
@@ -43,15 +42,11 @@
     </ul>
 </nav>
 
-<div class="container-liquid" style="background-color: wheat;">
-    <div class="row">
-        <div class="col-xs-3">
-            <ng-include src="'partials/includes/browser.html'"></ng-include>
-        </div>
-        <div class="col-xs-9" style="">
-            <ng-view></ng-view>
-        </div>
-    </div>
+<div class="sideBar">
+    <ng-include src="'partials/includes/browser.html'"></ng-include>
+</div>
+<div class="pageContent">
+    <ng-view></ng-view>
 </div>
 
 <ng-include src="'partials/includes/about.html'"></ng-include>

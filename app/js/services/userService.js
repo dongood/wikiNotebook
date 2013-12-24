@@ -3,6 +3,10 @@
 myApp.factory('user', function () {
     var _settingsKey = 'settingsbug';
     return {
+        os: {
+            mac: !process.platform.match(/^win/),
+            windows: !!process.platform.match(/^win/)
+        },
         settings: function (settings) {
             if(settings) {
                 localStorage.setItem(_settingsKey, JSON.stringify(settings));
