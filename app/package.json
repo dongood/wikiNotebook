@@ -1,0 +1,11 @@
+{
+    "name": "wikiNotebook",
+    "main": "default.html",
+    "window": {
+        "frame": true,
+        "title": "wikiNotebook",
+        "width": 800,
+        "height": 500,
+        "dummy_to_protect_commas": 0
+    }
+}

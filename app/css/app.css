@@ -1,0 +1,44 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 60px;
+    height:100%;
+}
+
+/* Required for ngCloak to work in all browsers */
+[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak {
+    display: none !important;
+}
+
+.window-drag-on {
+    -webkit-app-region: drag;
+}
+.window-drag-off {
+    -webkit-app-region: no-drag;
+}
+
+.action {
+    cursor: pointer;
+}
+
+ul.folder {
+    padding-left: 10px;
+}
+
+a.unstyled {
+    color: inherit; /* same color as body */
+    text-decoration: inherit; /* no underline */
+}
+a.unstyled:hover {
+    color: inherit; /* same color as body */
+    text-decoration: inherit; /* no underline */
+}
+
+/* Bootstrap overrides*/
+.form-horizontal .control-label {
+    text-align: left;
+}

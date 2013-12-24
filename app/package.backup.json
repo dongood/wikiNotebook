@@ -1,0 +1,18 @@
+{
+    "name": "wikiNotebook",
+    "main": "index.html",
+    "window": {
+        "frame": false,
+        "title": "wikiNotebook",
+        "icon": "link.png",
+        "toolbar": true,
+        "width": 800,
+        "height": 500,
+        "position": "mouse",
+        "min_width": 400,
+        "min_height": 200,
+        "max_width": 800,
+        "max_height": 600,
+        "dummy_to_protect_commas": 0
+    }
+}

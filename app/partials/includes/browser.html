@@ -1,0 +1,25 @@
+<script type="text/ng-template"  id="tree_item_renderer.html">
+    <div ng-if="node.file" class="action"><a class="unstyled" ng-href="#/view/{{ encodePath(node.path) }}"><i class="icon-file-text-alt"></i> {{ node.name }}</a></div>
+    <div ng-if="!node.file">
+        <div>
+            <span class="action" ng-click="expandFolder(node)">
+                <i ng-class="{'icon-folder-open-alt':node.expand,'icon-folder-close-alt':!node.expand}"></i> {{ node.name }}
+            </span>
+            <div class="btn-group pull-right">
+            <span class="dropdown-toggle action" data-toggle="dropdown"><i class="icon-plus"></i></span>
+            <ul class="dropdown-menu" role="menu">
+                <li><a class="action">Document</a></li>
+                <li><a class="action">Folder</a></li>
+            </ul>
+            </div>
+        </div>
+        <ul class="list-unstyled folder" ng-show="node.expand">
+            <li ng-repeat="node in node.nodes" ng-include="'tree_item_renderer.html'"></li>
+        </ul>
+    </div>
+</script>
+<div ng-controller="browserController">
+    <ul class="list-unstyled">
+        <li ng-repeat="node in tree" ng-include="'tree_item_renderer.html'"></li>
+    </ul>
+</div>

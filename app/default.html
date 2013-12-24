@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Hello World</title>
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css"/>
+    <link rel="stylesheet" href="lib/fonts/open-sans.css"/>
+    <link rel="stylesheet" href="lib/fonts/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="lib/highlight/styles/zenburn.css"/>
+    <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
+    <!-- CodeMirror -->
+    <link rel="stylesheet" href="lib/codemirror/lib/codemirror.css">
+    <script src="lib/codemirror/lib/codemirror.js"></script>
+    <script type="text/javascript" src="lib/codemirror/mode/xml/xml.js"></script>
+
+    <script src="lib/codemirror/mode/markdown/markdown.js"></script>
+    <script src="lib/codemirror/mode/gfm/gfm.js"></script>
+    <script src="lib/codemirror/mode/javascript/javascript.js"></script>
+    <script src="lib/codemirror/mode/css/css.js"></script>
+    <script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script src="lib/codemirror/mode/clike/clike.js"></script>
+</head>
+<body ng-controller="indexController" style="background-color: pink;">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header window-drag-on">
+        <div class="navbar-brand">
+            <span class="action" ng-click="gotoRoute('/welcome')">wikiNotebook</span>
+        </div>
+    </div>
+    <ul class="nav navbar-nav navbar-right window-drag-off">
+        <li class="dropdown">
+            <a class="dropdown-toggle action" data-toggle="dropdown"><i class="icon-cog"></i><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a class="action" ng-click="window.minimize()">Minimize</a></li>
+                <li><a class="action" ng-click="window.close()">Close Window</a></li>
+                <li><a class="action">Preferences</a></li>
+                <li class="divider"></li>
+                <li><a class="action" onclick="$('#aboutModal').modal('show')">About wikiNotebook</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-liquid" style="background-color: wheat;">
+    <div class="row">
+        <div class="col-xs-3">
+            <ng-include src="'partials/includes/browser.html'"></ng-include>
+        </div>
+        <div class="col-xs-9">
+            <ng-view></ng-view>
+        </div>
+    </div>
+</div>
+
+<ng-include src="'partials/includes/about.html'"></ng-include>
+
+<!-- Framework -->
+<script type="text/javascript" src="lib/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/angular-sanitize.min.js"></script>
+<script type="text/javascript" src="lib/underscore-min.js"></script>
+<script type="text/javascript" src="lib/marked/marked.js"></script>
+
+<!-- ngApp -->
+<script type="text/javascript" src="js/app.js"></script>
+
+<!-- ngServices -->
+<script type="text/javascript" src="js/services/windowService.js"></script>
+<script type="text/javascript" src="js/services/userService.js"></script>
+<script type="text/javascript" src="js/services/wikiService.js"></script>
+
+<!-- ngControllers -->
+<script type="text/javascript" src="defaultController.js"></script>
+<script type="text/javascript" src="partials/welcomeController.js"></script>
+<script type="text/javascript" src="partials/includes/browserController.js"></script>
+<script type="text/javascript" src="partials/viewController.js"></script>
+<script type="text/javascript" src="partials/editController.js"></script>
+
+</body>
+</html>
