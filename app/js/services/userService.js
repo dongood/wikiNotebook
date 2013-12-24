@@ -12,11 +12,15 @@ myApp.factory('user', function () {
             }
             else {
                 settings = {
+                    rootPath: '/',
                     fancyTables: true
                 }
             }
 
             return settings;
+        },
+        clearSettings: function () {
+            localStorage.removeItem(_settingsKey);
         },
         dummy_to_protect_commas: null
     }

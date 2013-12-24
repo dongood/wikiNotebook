@@ -17,10 +17,10 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngSanitize'])
                 templateUrl: 'partials/edit.html',
                 controller: 'editController'
             });
-        $routeProvider.when('/fileDialog',
+        $routeProvider.when('/preferences',
             {
-                templateUrl: 'partials/fileDialog.html',
-                controller: 'fileDialogController'
+                templateUrl: 'partials/preferences.html',
+                controller: 'preferencesController'
             });
 
         $routeProvider.otherwise({redirectTo: '/welcome'});

@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css"/>
     <link rel="stylesheet" href="lib/fonts/open-sans.css"/>
     <link rel="stylesheet" href="lib/fonts/font-awesome.min.css"/>
-    <link rel="stylesheet" href="css/app.css"/>
     <link rel="stylesheet" href="lib/highlight/styles/zenburn.css"/>
     <script type="text/javascript" src="lib/highlight/highlight.pack.js"></script>
     <!-- CodeMirror -->
@@ -19,6 +18,8 @@
     <script src="lib/codemirror/mode/css/css.js"></script>
     <script src="lib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
     <script src="lib/codemirror/mode/clike/clike.js"></script>
+
+    <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body ng-controller="indexController" style="background-color: pink;">
 
@@ -34,7 +35,7 @@
             <ul class="dropdown-menu">
                 <li><a class="action" ng-click="window.minimize()">Minimize</a></li>
                 <li><a class="action" ng-click="window.close()">Close Window</a></li>
-                <li><a class="action">Preferences</a></li>
+                <li><a class="unstyled" href="#/preferences">Preferences</a></li>
                 <li class="divider"></li>
                 <li><a class="action" onclick="$('#aboutModal').modal('show')">About wikiNotebook</a></li>
             </ul>
@@ -47,7 +48,7 @@
         <div class="col-xs-3">
             <ng-include src="'partials/includes/browser.html'"></ng-include>
         </div>
-        <div class="col-xs-9">
+        <div class="col-xs-9" style="">
             <ng-view></ng-view>
         </div>
     </div>
@@ -78,6 +79,7 @@
 <script type="text/javascript" src="partials/includes/browserController.js"></script>
 <script type="text/javascript" src="partials/viewController.js"></script>
 <script type="text/javascript" src="partials/editController.js"></script>
+<script type="text/javascript" src="partials/preferencesController.js"></script>
 
 </body>
 </html>

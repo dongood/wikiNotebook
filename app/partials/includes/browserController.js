@@ -3,8 +3,8 @@
 myApp.controller('browserController',
     function ($scope, $location) {
         //$scope.rootPath = '/';  // root path on the system
-        $scope.rootPath = '/Users/don/Dropbox/Source Code/Personal/nodeWebKit/wikiNotebook';
-        //$scope.rootPath = '/Users/don/Dropbox/Documents/Notebooks';
+        //$scope.rootPath = '/Users/don/Dropbox/Source Code/Personal/nodeWebKit/wikiNotebook';
+        $scope.rootPath = '/Users/don/Dropbox/Documents/Notebooks';
         var root = {path:$scope.rootPath, nodes:[]};
         $scope.tree = root.nodes;
 
@@ -39,8 +39,10 @@ myApp.controller('browserController',
                         //node.nodes.push({path:path, name:files[i], expand:false, file:false, directory:1, nodes:[]});
                         temp.push({path:path, name:files[i], expand:false, file:false, directory:1, nodes:[]});
                     } else {
-                        //node.nodes.push({path:path, name:files[i], expand:false, file:true, directory:2, nodes:[]});
-                        temp.push({path:path, name:files[i], expand:false, file:true, directory:2, nodes:[]});
+                        var re = /\.md$/;
+                        if(re.test(files[i])) {
+                            temp.push({path:path, name:files[i], expand:false, file:true, directory:2, nodes:[]});
+                        }
                     }
                 }
 
