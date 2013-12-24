@@ -3,7 +3,8 @@
 myApp.controller('browserController',
     function ($scope, $location) {
         //$scope.rootPath = '/';  // root path on the system
-        $scope.rootPath = '/Users/don/Dropbox/Documents/Notebooks';
+        $scope.rootPath = '/Users/don/Dropbox/Source Code/Personal/nodeWebKit/wikiNotebook';
+        //$scope.rootPath = '/Users/don/Dropbox/Documents/Notebooks';
         var root = {path:$scope.rootPath, nodes:[]};
         $scope.tree = root.nodes;
 
