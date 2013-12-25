@@ -1,14 +1,19 @@
 'use strict';
 
 myApp.controller('browserController',
-    function ($scope, $location) {
-        //$scope.rootPath = '/';  // root path on the system
-        //$scope.rootPath = '/Users/don/Dropbox/Source Code/Personal/nodeWebKit/wikiNotebook';
-        $scope.rootPath = '/Users/don/Dropbox/Documents/Notebooks';
+    function ($scope, user, broadcastService) {
+        $scope.rootPath = user.settings().rootPath;
         var root = {path:$scope.rootPath, nodes:[]};
         $scope.tree = root.nodes;
 
         var fs = require('fs');
+
+        $scope.$on(broadcastService.events.reloadBrowser, function(event, data) {
+            $scope.rootPath = user.settings().rootPath;
+            root = {path:$scope.rootPath, nodes:[]};
+            $scope.tree = root.nodes;
+            readDirectory(root);
+        });
 
         $scope.expandFolder = function(node) {
             if(node.expand==false) {
@@ -47,13 +52,6 @@ myApp.controller('browserController',
                 }
 
             }
-/*
-                var sortedArray = _(node.nodes).chain().sortBy(function(node) {
-                    return node.file;
-                }).sortBy(function(node) {
-                        return node.name;
-                    }).value();
-*/
             var sorted = _(temp).chain().sortBy(function(a) {
                 return a.directory;
             }).value();

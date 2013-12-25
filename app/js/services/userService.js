@@ -21,7 +21,14 @@ myApp.factory('user', function () {
                 }
             }
 
-            return settings;
+            // used to set default for when updates with new settings occur
+            var rtn = {
+                rootPath: settings.rootPath || '/',
+                fancyTables: settings.fancyTables || false,
+                saveDelay: settings.saveDelay || 2000
+            }
+
+            return rtn;
         },
         clearSettings: function () {
             localStorage.removeItem(_settingsKey);

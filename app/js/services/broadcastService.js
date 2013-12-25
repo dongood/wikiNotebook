@@ -8,7 +8,8 @@ myApp.factory('broadcastService', function($rootScope) {
         events: {
             edit: 'editNote',
             view: 'viewNote',
-            hideToolbar: 'hideToolbar'
+            hideToolbar: 'hideToolbar',
+            reloadBrowser: 'reloadBrowser'
         },
         edit: function(title, rawPath) {
             var data = {title:title, rawPath:rawPath};
@@ -20,6 +21,9 @@ myApp.factory('broadcastService', function($rootScope) {
         },
         hideToolbar: function() {
             _publish(this.events.hideToolbar, true);
+        },
+        reloadBrowser: function() {
+            _publish(this.events.reloadBrowser, true);
         }
     }
 });
