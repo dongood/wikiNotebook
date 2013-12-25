@@ -1,7 +1,7 @@
 'use strict';
 
 myApp.controller('editController',
-    function ($scope, $routeParams, user, broadcastService) {
+    function ($scope, $routeParams, $timeout, user, broadcastService) {
         $scope.test = 'editController is active!';
 
         var fs = require('fs');
@@ -22,6 +22,21 @@ myApp.controller('editController',
             theme: "default"
         });
         editor.setSize(null,'100%');
+
+        var doSave = true;
+        editor.on('change', function(cm, change) {
+            if(doSave) {
+                doSave = false;
+                $timeout(function() {
+                    console.log('change occurred');
+                    var a = cm.getValue();
+                    console.log(a.length);
+                    doSave = true;
+                }, 1000);
+            }
+        });
+
+        //console.log(editor.getValue());
 
         broadcastService.edit($scope.pageTitle, $scope.rawPath);
 
