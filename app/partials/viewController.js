@@ -11,6 +11,6 @@ myApp.controller('viewController',
         var raw = fs.readFileSync(path, 'utf8');
         $scope.parsedContent = wiki.markdown.parse(raw);
 
-        broadcastService.view($scope.pageTitle, path);
+        broadcastService.view($scope.pageTitle, $scope.rawPath);
     }
 );

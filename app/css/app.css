@@ -8,28 +8,11 @@ body {
     padding-top: 60px;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
-
 /* Required for ngCloak to work in all browsers */
 [ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak {
     display: none !important;
 }
 
-.sam {
-    position: fixed;
-    background: #222222;
-    color: #a9a9a9;
-    height: 40px;
-    font-size:16px;
-    line-height:50px;
-    padding:0 15px;
-    top:0;
-    left:0;
-    right:0;
-    z-index: 100;
-}
 .navHeader {
     position:fixed;
     background-color: #4D5052;
@@ -70,24 +53,13 @@ body {
     width:25%;
     top:50px;
     bottom:0;
-    overflow-x: auto;
-}
-
-.contentTitle {
-    position:fixed;
-    background-color: #4D5052;
-    color: darkgrey;
-    padding: 10px;
-    top:50px;
-    right:0;
-    left:25%;
-    height:40px;
+    overflow: auto;
 }
 
 .pageContent {
     position:absolute;
     background-color: #B8BBA6;
-    padding: 30px 10px 10px 10px;
+    padding: 10px;
     right:0;
     left:25%;
     top:50px;

@@ -21,8 +21,9 @@ myApp.controller('editController',
             lineNumbers: true,
             theme: "default"
         });
+        editor.setSize(null,'100%');
 
-        broadcastService.edit($scope.pageTitle, path);
+        broadcastService.edit($scope.pageTitle, $scope.rawPath);
 
     }
 );

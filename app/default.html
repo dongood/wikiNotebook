@@ -24,16 +24,16 @@
 <body ng-controller="indexController">
 
 
-<div class="navHeader">
-    <div class="brand window-drag-on">wikiNotebook</div>
-    <div class="title window-drag-on">
-        <span>/Markdown Syntax.md</span>
-        <div class="btn-toolbar pull-right window-drag-off" role="toolbar">
+<div class="navHeader window-drag-on">
+    <div class="brand">wikiNotebook</div>
+    <div class="title">
+        <span ng-bind="toolbar.title"></span>
+        <div class="btn-toolbar pull-right window-drag-off" ng-cloak>
             <div class="btn-group btn-group-sm" ng-show="toolbar.view">
-                <button type="button" class="btn btn-default">View</button>
+                <a class="btn btn-default" ng-href="#/view/{{ toolbar.rawPath }}">View</a>
             </div>
             <div class="btn-group btn-group-sm" ng-show="toolbar.edit">
-                <button type="button" class="btn btn-default">Edit</button>
+                <a class="btn btn-default" ng-href="#/edit/{{ toolbar.rawPath }}">Edit</a>
             </div>
             <div class="btn-group btn-group-sm">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-ellipsis-vertical"></i></button>
