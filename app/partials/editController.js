@@ -1,13 +1,13 @@
 'use strict';
 
 myApp.controller('editController',
-    function ($scope, $routeParams) {
+    function ($scope, $routeParams, user, broadcastService) {
         $scope.test = 'editController is active!';
 
         var fs = require('fs');
         $scope.rawPath = $routeParams.path || '';
         var path = window.atob($scope.rawPath);
-        $scope.pageTitle = path;
+        $scope.pageTitle = path.replace(user.settings().rootPath, '');
         $scope.rawContent = '';
 
         var raw = fs.readFileSync(path, 'utf8');
@@ -21,6 +21,8 @@ myApp.controller('editController',
             lineNumbers: true,
             theme: "default"
         });
+
+        broadcastService.edit($scope.pageTitle, path);
 
     }
 );

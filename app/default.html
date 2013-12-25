@@ -22,25 +22,33 @@
     <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body ng-controller="indexController">
-<nav class="navbar navbar-inverse navbar-fixed-top window-drag-on">
-    <div class="navbar-header">
-        <div class="navbar-brand">
-            <span class="action" ng-click="gotoRoute('/welcome')">wikiNotebook</span>
+
+
+<div class="navHeader">
+    <div class="brand window-drag-on">wikiNotebook</div>
+    <div class="title window-drag-on">
+        <span>/Markdown Syntax.md</span>
+        <div class="btn-toolbar pull-right window-drag-off" role="toolbar">
+            <div class="btn-group btn-group-sm" ng-show="toolbar.view">
+                <button type="button" class="btn btn-default">View</button>
+            </div>
+            <div class="btn-group btn-group-sm" ng-show="toolbar.edit">
+                <button type="button" class="btn btn-default">Edit</button>
+            </div>
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><i class="icon-ellipsis-vertical"></i></button>
+                <ul class="dropdown-menu pull-right">
+                    <li><a class="action" ng-click="window.minimize()">Minimize</a></li>
+                    <li><a class="action" ng-click="window.close()">Close Window</a></li>
+                    <li><a class="unstyled" href="#/preferences">Preferences</a></li>
+                    <li class="divider"></li>
+                    <li><a class="action" onclick="$('#aboutModal').modal('show')">About wikiNotebook</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <ul class="nav navbar-nav navbar-right window-drag-off">
-        <li class="dropdown">
-            <a class="dropdown-toggle action" data-toggle="dropdown"><i class="icon-cog"></i><b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a class="action" ng-click="window.minimize()">Minimize</a></li>
-                <li><a class="action" ng-click="window.close()">Close Window</a></li>
-                <li><a class="unstyled" href="#/preferences">Preferences</a></li>
-                <li class="divider"></li>
-                <li><a class="action" onclick="$('#aboutModal').modal('show')">About wikiNotebook</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
+</div>
+
 
 <div class="sideBar">
     <ng-include src="'partials/includes/browser.html'"></ng-include>
@@ -67,6 +75,7 @@
 <script type="text/javascript" src="js/services/windowService.js"></script>
 <script type="text/javascript" src="js/services/userService.js"></script>
 <script type="text/javascript" src="js/services/wikiService.js"></script>
+<script type="text/javascript" src="js/services/broadcastService.js"></script>
 
 <!-- ngControllers -->
 <script type="text/javascript" src="defaultController.js"></script>
