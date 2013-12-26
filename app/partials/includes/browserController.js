@@ -5,14 +5,18 @@ myApp.controller('browserController',
         $scope.rootPath = user.settings().rootPath;
         var root = {path:$scope.rootPath, nodes:[]};
         $scope.tree = root.nodes;
+        $scope.newName = '';
 
         var fs = require('fs');
 
-        $scope.$on(broadcastService.events.reloadBrowser, function(event, data) {
+        var reloadBrowser = function() {
             $scope.rootPath = user.settings().rootPath;
             root = {path:$scope.rootPath, nodes:[]};
             $scope.tree = root.nodes;
             readDirectory(root);
+        }
+        $scope.$on(broadcastService.events.reloadBrowser, function(event, data) {
+            reloadBrowser();
         });
 
         $scope.expandFolder = function(node) {
@@ -25,6 +29,38 @@ myApp.controller('browserController',
 
         $scope.encodePath = function(path) {
             return window.btoa(path);
+        }
+
+        $scope.newNode = {}
+        $scope.showNewDialog = function(dialog, node) {
+            $scope.newNode = node;
+            $(dialog).modal('show');
+        }
+        $scope.createFolder = function(form) {
+            $scope.$apply(function() {
+                var path = $scope.newNode.path;
+                var re = /\/$/;
+                if(!re.test(path)) {
+                    path += '/';
+                }
+                // TODO: Create new folder
+                fs.mkdirSync(path + $scope.newName);
+                $scope.newName = '';
+                angular.element(dialog).modal('show');
+                reloadBrowser();
+            });
+        }
+        $scope.newFile = function(form) {
+            if(form.$valid) {
+                var path = $scope.newNode.path;
+                var re = /\/$/;
+                if(!re.test(path)) {
+                    path += '/';
+                }
+                // TODO: Create new file
+                $scope.newName = '';
+                //reloadBrowser();
+            }
         }
 
         var readDirectory = function(node) {
